@@ -1,0 +1,75 @@
+@font-face {
+   font-family: roboto-bolditalic;
+   src: url(../fonts/roboto-bolditalic.TTF);
+}
+@font-face {
+   font-family: roboto-light;
+   src: url(../fonts/roboto-light.TTF);
+}
+.accordion {
+	background-color: #9432A5;
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 18px;
+	padding-top: 31px;
+	padding-bottom: 31px; 
+	height: 105px;		
+	width: 97%;
+	width: -moz-available;          /* Mozilla-based browsers. */
+	width: -webkit-fill-available;  /* WebKit-based browsers. */
+	min-width: 240px;
+	text-align: left;
+	outline: none;
+	font-family : roboto-bolditalic;
+	font-size: 32px;
+	border : none;
+	border-bottom: 5px solid;
+	border-bottom-color : #652472;
+	margin-bottom : 5px;
+	margin-left : 15px;
+	margin-right: 15px;			
+	transition: 0.4s;
+}
+
+.active {
+	background-color: #5F3EAC; 
+	border-bottom-color : #442D79;
+}
+
+.panel {
+	width: 97%;
+	width: -moz-available;          /* Mozilla-based browsers. */
+	width: -webkit-fill-available;  /* WebKit-based browsers. */
+	min-width: 240px;			
+	border: 2px solid #E8E8E8;
+	margin-top: -5px;
+	margin-bottom: 3px;
+	margin-left : 15px;
+	margin-right : 15px;
+	padding-bottom: 4px;
+	display: none;
+	background-color: white;
+	overflow: hidden;
+	display: none;   
+}
+
+.panel > p {
+	font-family : roboto-light;
+	padding-left : 18px;
+	padding-right: 10px;
+	margin-top: 25px;
+    margin-bottom: 25px;
+	font-size: 20px;		
+}
+
+.button_icon {
+	float : right;
+	background: url(../images/down_arrow.png) no-repeat;
+	width: 30px;
+	height: 40px;
+	padding-right: 10px;
+}
+
+.active .button_icon {
+	background: url(../images/up_arrow.png) no-repeat;
+}

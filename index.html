@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>	
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Accordian Assignemnt</title>		
+		<link rel="stylesheet" href="css/main.css"/>
+		<script>
+//Load accordion data from JSON
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var json = this.responseText;
+		
+		var accordianRecords = JSON.parse(json);
+		
+		if("blocks" in accordianRecords){
+			accordianRecords.blocks.forEach(function(record, index){
+				var section = "<button class='accordion' id='section" + index+ "'>" + record.heading + "<span class='button_icon'></span></button>";
+				var panel = "<div class='panel'><p>" + record.content + "</p></div>";
+				var div = document.getElementById("accordion_area")
+				div.innerHTML += section + panel;
+			});
+			
+			//Grab accordian class and create click event
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++) {
+				acc[i].addEventListener("click", function() {
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.display === "block") {
+						panel.style.display = "none";
+					} else {
+						panel.style.display = "block";
+					}
+				});
+			}
+			
+		}
+    }
+};
+xmlhttp.open("GET", "php/loadJson.php", true);
+xmlhttp.send();		
+		
+
+
+
+		</script>
+	</head>
+	<body>
+		<div id = "accordion_area">
+		</div>
+	</body>
+</html>
